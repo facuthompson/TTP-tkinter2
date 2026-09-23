@@ -55,7 +55,7 @@ class CRUDFrame(ttk.Frame):
         panel.pack(fill="both", expand=True, padx=16, pady=(0, 16))
         columnas = self.configuracion["columnas"]
         self.tabla = ttk.Treeview(panel, columns=[clave for clave, _ in columnas],
-                                  show="headings", height=12)
+                                show="headings", height=12)
         for clave, titulo in columnas:
             self.tabla.heading(clave, text=titulo)
             self.tabla.column(clave, anchor="center", width=130)
@@ -158,7 +158,7 @@ class CRUDFrame(ttk.Frame):
 
 class VentanaPrincipal:
     def __init__(self, raiz, config_clientes, config_pedidos, cerrar):
-        raiz.title("Sistema de Impresión 3D")
+        raiz.title("Berniprints 3D")
         raiz.geometry("1050x680")
         configurar_tema(raiz)
 
@@ -169,7 +169,7 @@ class VentanaPrincipal:
         pestanas.add(self.clientes, text="Clientes")
         pestanas.add(self.pedidos, text="Pedidos")
         pestanas.bind("<<NotebookTabChanged>>", lambda evento: self.pedidos.actualizar()
-                      if pestanas.select() == str(self.pedidos) else None)
+                    if pestanas.select() == str(self.pedidos) else None)
 
         def salir():
             cerrar()
